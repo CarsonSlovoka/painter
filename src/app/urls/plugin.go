@@ -19,14 +19,15 @@ func (vh *PluginViewHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
     if err != nil {
         w.WriteHeader(404)
-        _, _ = w.Write([]byte("404 - " + http.StatusText(404)))
+        _, _ = w.Write([]byte(fmt.Sprintf(`<h1 style="text-align: center">404 - %s</h1>`, http.StatusText(404))))
         return
     }
 
     contentTypeMap := map[string]string{
-        "html":  "text/html",
-        "css":   "text/css",
-        "js":    "application/javascript",
+        "html":  "text/html; charset=utf-8", // such that you don't add ``<meta charset="utf-8" />`` on HTML.
+        "css":   "text/css; charset=utf-8",
+        "js":    "application/javascript; charset=utf-8",
+        "json":  "application/json; charset=utf-8",
         "png":   "image/png",
         "image": "image/jpeg",
         "svg":   "image/svg+xml",
@@ -42,7 +43,7 @@ func (vh *PluginViewHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     }
 
     w.WriteHeader(http.StatusNotAcceptable)
-    _, _ = w.Write([]byte(fmt.Sprintf("406 - %s - %s", http.StatusText(406), contentType)))
+    _, _ = w.Write([]byte(fmt.Sprintf(`<h1 style="text-align: center">406 - %s - %s</h1>`, http.StatusText(406), contentType)))
 
 }
 
