@@ -1,6 +1,6 @@
 <p align="center">
   <a href="">
-    <img alt="youtube" src="asset/img/site/favicon.svg" width="384"/>
+    <img alt="Painter" src="asset/img/site/favicon.svg" width="384"/>
   </a>
 </p>
 
