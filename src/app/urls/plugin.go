@@ -54,6 +54,7 @@ func initPlugin() {
     */
 
     server.Mux.PathPrefix("/plugin/").Handler(
-        http.StripPrefix("/plugin", pluginViewHandler),
+        // http.StripPrefix("/plugin", pluginViewHandler),
+        pluginViewHandler,
     )
 }

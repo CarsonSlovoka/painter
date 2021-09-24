@@ -13,7 +13,7 @@ var (
 
 type Settings struct {
     Name    string `json:"name"`
-    Version string  `json:"version"`
+    Version string `json:"version"`
     Server  Server `json:"server"`
     Debug   Debug  `json:"debug"`
 }
